@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayCal - David (Alex) Beesley", "PayCal - David (Alex) Beesley\PayCal - David (Alex) Beesley.csproj", "{3127C61E-A17E-4BC5-9470-575740315402}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3127C61E-A17E-4BC5-9470-575740315402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3127C61E-A17E-4BC5-9470-575740315402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3127C61E-A17E-4BC5-9470-575740315402}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3127C61E-A17E-4BC5-9470-575740315402}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {82FFECB1-F33A-4770-87D7-1C2348E22B0A}
+	EndGlobalSection
+EndGlobal
