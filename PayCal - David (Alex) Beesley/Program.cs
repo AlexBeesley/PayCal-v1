@@ -5,6 +5,8 @@ namespace PayCal
     {
         static void Main(string[] args)
         {
+            Console.SetWindowSize(117,50);
+
             Console.WriteLine("Welcome to the PayCal System, a Salary Calculator.");
             Console.WriteLine("");
             DataTableMain dt = new DataTableMain();
@@ -13,9 +15,10 @@ namespace PayCal
 
             while (true)
             {
-                Console.WriteLine(@"Please Select from the following options:
-Display Employee Information ---------- 1
-Add new Employee ---------------------- 2");
+                Console.WriteLine(@"
+Please Select from the following options:
+Display Employee Information --------------------------------------------------------------------------------- 1
+Add new Employee --------------------------------------------------------------------------------------------- 2");
                 Console.WriteLine(">>>  ");
                 string Selection = Console.ReadLine();
                 if (Selection == "1")

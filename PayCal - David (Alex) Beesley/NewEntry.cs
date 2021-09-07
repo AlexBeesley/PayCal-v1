@@ -4,7 +4,8 @@ public class DataTableNewEntry
 {
     public void newEntry()
     {
-        Console.WriteLine("----- NEW EMPLOYEE ENTRY -----");
+        Console.Clear();
+        Console.WriteLine("\n------------------------------------------------- NEW EMPLOYEE ENTRY ------------------------------------------------");
         Console.WriteLine("Enter First Name:  ");
         string newFName = Console.ReadLine();
 

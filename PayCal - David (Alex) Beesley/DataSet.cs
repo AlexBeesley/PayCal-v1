@@ -21,8 +21,8 @@ public class DataTableMain
 
         return table;
     }
-    
-    public void PrintTable()
+
+    /*public void PrintTable()
     {
             int x = 0;
             for (int i = 0; i < 8; i++)
@@ -39,6 +39,16 @@ public class DataTableMain
                 }
                 Console.WriteLine("\n");
             }
+    }*/
+
+    public void PrintTable()
+    {
+        foreach (DataRow dr in table.Rows)
+        {
+            Console.Write("ID:{0,-3} First Name:{1,-5} Surname:{2,-8} Permanent?:{3,-6} Salary:{4,-5} Bonus:{5,-5} Day Rate:{6,-5} Weeks Worked:{7,-5}"
+            , dr["ID"], dr["First Name"], dr["Surname"], dr["Permanent?"], dr["Salary"], dr["Bonus"], dr["Day Rate"], dr["Weeks Worked"]);
+        }
+        Console.WriteLine("\n");
     }
 
 }
