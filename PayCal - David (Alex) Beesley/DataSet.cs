@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 
 public class DataTableMain
 {
     public DataTable table = new DataTable();
     public DataTable MakeTable()
     {   
-        
         table.Columns.Add("ID", typeof(int));
         table.Columns.Add("First Name", typeof(string));
         table.Columns.Add("Surname", typeof(string));
@@ -36,13 +33,11 @@ public class DataTableMain
                     x++;
                     if (x == 3)
                     {
-                        Console.WriteLine("BREAK");
                         break;
                     }
                     i = -1;
                 }
                 Console.WriteLine("\n");
-                    
             }
     }
 
