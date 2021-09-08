@@ -29,8 +29,6 @@ Add new Employee ---------------------------------------------------------------
                 }
                 if (Selection == "2")
                 {
-                    //ne.newEntry();
-                    Console.WriteLine("Data to inject from MAIN:  " + ne.newFName + " / " + ne.newLName + " / " + ne.newPermBoo + " / " + ne.newSalaryint + " / " + ne.newBonusint + " / " + ne.newWeeksWorkedint);
                     dt.NewDataInjection();
                 }
             }

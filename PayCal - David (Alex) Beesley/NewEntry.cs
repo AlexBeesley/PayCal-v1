@@ -10,86 +10,94 @@ public class DataTableNewEntry
     public int newDayRateint;
     public int newWeeksWorkedint;
     public int IDCount = 3;
+    public int Output;
+    public bool commit = true;
+
+    string[] Fields = { "Enter First Name:  ", "Enter Surname:  ", "Enter Salary (if applicable):  $", "Enter Bonus (if applicable):  $",
+                        "Enter Day Rate (if applicable):  $", "Enter Weeks Worked (if applicable):  " };
+
     public void newEntry()
     {
-        //Console.Clear();
-        Console.WriteLine("\n------------------------------------------------- NEW EMPLOYEE ENTRY ------------------------------------------------");
+        while (true)
+        {
+            Console.Clear();
+            Console.WriteLine("\n------------------------------------------------- NEW EMPLOYEE ENTRY ------------------------------------------------");
+
+            Console.WriteLine(Fields[0]);
+            newFName = Console.ReadLine();
+
+            Console.WriteLine(Fields[1]);
+            newLName = Console.ReadLine();
+
+            TypeConv();
+
+            GetIntInputs();
+
+            Console.WriteLine($"Data to inject:  {newFName} / {newLName} / {newPermBoo} / {newSalaryint} / {newBonusint} / {newDayRateint} / {newWeeksWorkedint}");
+            
+            while (true)
+            {
+                Console.WriteLine("Confirm data is correct and fit for injection. [Y/n]  ");
+                string confirm = Console.ReadLine();
+                if (confirm == "Y" || confirm == "y" || confirm == "")
+                {
+                    IDCount++;
+                    commit = false;
+                    break;
+                }
+                if (confirm == "N" || confirm == "n")
+                {
+                    break;
+                }
+            }
+            
+            if (commit == false)
+            {
+                break;
+            }
+
+        }
         
-        Console.WriteLine("Enter First Name:  ");
-        newFName = Console.ReadLine();
-
-        Console.WriteLine("Enter Surname:  ");
-        newLName = Console.ReadLine();
-
-        TypeConv();
-
-        while (true)
-        {
-            Console.WriteLine("Enter Salary (if applicable):  $");
-            string newSalary = Console.ReadLine();
-            bool valid = int.TryParse(newSalary, out newSalaryint);
-            if (valid)
-            {
-                Console.WriteLine("Vaild, Salary set to: $" + newSalaryint);
-                break;
-            }
-            else
-            {
-                Console.WriteLine("invaild input.");
-            }
-        }
-
-        while (true)
-        {
-            Console.WriteLine("Enter Bonus (if applicable):  $");
-            string newBonus = Console.ReadLine();
-            bool valid = int.TryParse(newBonus, out newBonusint);
-            if (valid)
-            {
-                Console.WriteLine("Vaild, Bonus set to: $" + newBonusint);
-                break;
-            }
-            else
-            {
-                Console.WriteLine("invaild input.");
-            }
-        }
-
-        while (true)
-        {
-            Console.WriteLine("Enter Day Rate (if applicable):  $");
-            string newDayRate = Console.ReadLine();
-            bool valid = int.TryParse(newDayRate, out newDayRateint);
-            if (valid)
-            {
-                Console.WriteLine("Vaild, Day Rate set to: $" + newDayRateint);
-                break;
-            }
-            else
-            {
-                Console.WriteLine("invaild input.");
-            }
-        }
-
-        while (true)
-        {
-            Console.WriteLine("Enter Weeks Worked (if applicable):  ");
-            string newWeeksWorked = Console.ReadLine();
-            bool valid = int.TryParse(newWeeksWorked, out newWeeksWorkedint);
-            if (valid)
-            {
-                Console.WriteLine("Vaild, Weeks Worked set to:  " + newWeeksWorkedint);
-                break;
-            }
-            else
-            {
-                Console.WriteLine("invaild input.");
-            }
-        }
-        Console.WriteLine($"Data to inject from NE:  {newFName} / {newLName} / {newPermBoo} / {newSalaryint} / {newBonusint} / {newDayRateint} / {newWeeksWorkedint}");
-        IDCount++;
     }
-    
+
+    public void GetIntInputs()
+    {
+        for (int i = 2; i < 6; i++)
+        {
+           Console.WriteLine(Fields[i]);
+            string Input = Console.ReadLine();
+            bool valid = int.TryParse(Input, out Output);
+            if (valid)
+            {
+                if (i == 2) //Salary
+                {
+                    Console.WriteLine("Vaild, Salary set to: $" + Output);
+                    newSalaryint = Output;
+                }
+                if (i == 3) //Bonus
+                {
+                    Console.WriteLine("Vaild, Bonus set to: $" + Output);
+                    newBonusint = Output;
+                }
+                if (i == 4) //Day Rate
+                {
+                    Console.WriteLine("Vaild, Day Rate set to: $" + Output);
+                    newDayRateint = Output;
+                }
+                if (i == 5) //Weeks Worked
+                {
+                    Console.WriteLine("Vaild, Weeks Worked set to:  " + Output);
+                    newWeeksWorkedint = Output;
+                }
+            }
+           
+            else
+            {
+                Console.WriteLine("invaild input.");
+            }
+        }
+    }
+
     public void TypeConv()
     {
         
@@ -109,8 +117,9 @@ public class DataTableNewEntry
             }
             
         }
-        Console.WriteLine("BOOLEAN SET TO:  " + newPermBoo);
     }
+
+    
 
 
 }
