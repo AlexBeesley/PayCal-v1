@@ -2,31 +2,37 @@
 using System.Data;
 public class DataTableNewEntry
 {
-    public bool newPermBoo = false;
+    
     public string newFName;
     public string newLName;
+    public bool newPermBoo = false;
     public int newSalaryint;
     public int newBonusint;
     public int newDayRateint;
     public int newWeeksWorkedint;
+
     public int IDCount = 3;
     public int Output;
-    public bool commit = true;
+    public bool commit = false;
+    
+        
 
     string[] Fields = { "Enter First Name:  ", "Enter Surname:  ", "Enter Salary (if applicable):  $", "Enter Bonus (if applicable):  $",
                         "Enter Day Rate (if applicable):  $", "Enter Weeks Worked (if applicable):  " };
 
     public void newEntry()
     {
-        while (true)
+        bool commitComplete = false;
+        bool NELoopComplete = false;
+        while (NELoopComplete == false)
         {
             Console.Clear();
             Console.WriteLine("\n------------------------------------------------- NEW EMPLOYEE ENTRY ------------------------------------------------");
 
-            Console.WriteLine(Fields[0]);
+            Console.Write(Fields[0]);
             newFName = Console.ReadLine();
 
-            Console.WriteLine(Fields[1]);
+            Console.Write(Fields[1]);
             newLName = Console.ReadLine();
 
             TypeConv();
@@ -35,25 +41,25 @@ public class DataTableNewEntry
 
             Console.WriteLine($"Data to inject:  {newFName} / {newLName} / {newPermBoo} / {newSalaryint} / {newBonusint} / {newDayRateint} / {newWeeksWorkedint}");
             
-            while (true)
+            while (commitComplete == false)
             {
-                Console.WriteLine("Confirm data is correct and fit for injection. [Y/n]  ");
+                Console.Write("Confirm data is correct and fit for injection. [Y/n]  ");
                 string confirm = Console.ReadLine();
                 if (confirm == "Y" || confirm == "y" || confirm == "")
                 {
                     IDCount++;
-                    commit = false;
-                    break;
+                    commit = true;
+                    commitComplete = true;
                 }
                 if (confirm == "N" || confirm == "n")
                 {
-                    break;
+                    commitComplete = true;
                 }
             }
             
-            if (commit == false)
+            if (commit == true)
             {
-                break;
+                NELoopComplete = true;
             }
 
         }
@@ -64,7 +70,7 @@ public class DataTableNewEntry
     {
         for (int i = 2; i < 6; i++)
         {
-           Console.WriteLine(Fields[i]);
+           Console.Write(Fields[i]);
             string Input = Console.ReadLine();
             bool valid = int.TryParse(Input, out Output);
             if (valid)
@@ -100,26 +106,22 @@ public class DataTableNewEntry
 
     public void TypeConv()
     {
-        
-        while (true)
+        bool typeConvComplete = false;
+        while (typeConvComplete  == false)
         {
             Console.WriteLine("Is Employment Permanent? [Y/N]  ");
             string newIsPerm = Console.ReadLine();
             if (newIsPerm == "Y" || newIsPerm == "y")
             {
                 newPermBoo = true;
-                break;
+                typeConvComplete = true;
             }
             if (newIsPerm == "N" || newIsPerm == "n")
             {
                 newPermBoo = false;
-                break;
+                typeConvComplete = true;
             }
             
         }
     }
-
-    
-
-
 }

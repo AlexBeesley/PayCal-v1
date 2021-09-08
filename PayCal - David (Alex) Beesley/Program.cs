@@ -21,10 +21,12 @@ namespace PayCal
 Please Select from the following options:
 Display Employee Information --------------------------------------------------------------------------------- 1
 Add new Employee --------------------------------------------------------------------------------------------- 2");
-                Console.WriteLine(">>>  ");
+                Console.Write(">>>  ");
                 string Selection = Console.ReadLine();
                 if (Selection == "1")
                 {
+                    Console.Clear();
+                    Console.WriteLine("\n\n");
                     dt.PrintTable();
                 }
                 if (Selection == "2")
