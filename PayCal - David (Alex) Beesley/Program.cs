@@ -3,14 +3,16 @@ namespace PayCal
 {
     public class MainThread
     {
+
         static void Main(string[] args)
         {
             Console.SetWindowSize(117,50);
-
             Console.WriteLine("Welcome to the PayCal System, a Salary Calculator.");
             Console.WriteLine("");
+
             DataTableMain dt = new DataTableMain();
             DataTableNewEntry ne = new DataTableNewEntry();
+            
             dt.MakeTable();
 
             while (true)
@@ -27,12 +29,11 @@ Add new Employee ---------------------------------------------------------------
                 }
                 if (Selection == "2")
                 {
-                    ne.newEntry();
+                    //ne.newEntry();
+                    Console.WriteLine("Data to inject from MAIN:  " + ne.newFName + " / " + ne.newLName + " / " + ne.newPermBoo + " / " + ne.newSalaryint + " / " + ne.newBonusint + " / " + ne.newWeeksWorkedint);
+                    dt.NewDataInjection();
                 }
             }
-            
-
-
         }
     }
 }

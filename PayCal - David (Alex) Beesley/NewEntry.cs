@@ -2,15 +2,24 @@
 using System.Data;
 public class DataTableNewEntry
 {
+    public bool newPermBoo = false;
+    public string newFName;
+    public string newLName;
+    public int newSalaryint;
+    public int newBonusint;
+    public int newDayRateint;
+    public int newWeeksWorkedint;
+    public int IDCount = 3;
     public void newEntry()
     {
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("\n------------------------------------------------- NEW EMPLOYEE ENTRY ------------------------------------------------");
+        
         Console.WriteLine("Enter First Name:  ");
-        string newFName = Console.ReadLine();
+        newFName = Console.ReadLine();
 
         Console.WriteLine("Enter Surname:  ");
-        string newLName = Console.ReadLine();
+        newLName = Console.ReadLine();
 
         TypeConv();
 
@@ -18,7 +27,6 @@ public class DataTableNewEntry
         {
             Console.WriteLine("Enter Salary (if applicable):  $");
             string newSalary = Console.ReadLine();
-            int newSalaryint;
             bool valid = int.TryParse(newSalary, out newSalaryint);
             if (valid)
             {
@@ -35,11 +43,10 @@ public class DataTableNewEntry
         {
             Console.WriteLine("Enter Bonus (if applicable):  $");
             string newBonus = Console.ReadLine();
-            int newBonusint;
             bool valid = int.TryParse(newBonus, out newBonusint);
             if (valid)
             {
-                Console.WriteLine("Vaild, Salary set to: $" + newBonusint);
+                Console.WriteLine("Vaild, Bonus set to: $" + newBonusint);
                 break;
             }
             else
@@ -52,11 +59,10 @@ public class DataTableNewEntry
         {
             Console.WriteLine("Enter Day Rate (if applicable):  $");
             string newDayRate = Console.ReadLine();
-            int newDayRateint;
             bool valid = int.TryParse(newDayRate, out newDayRateint);
             if (valid)
             {
-                Console.WriteLine("Vaild, Salary set to: $" + newDayRateint);
+                Console.WriteLine("Vaild, Day Rate set to: $" + newDayRateint);
                 break;
             }
             else
@@ -69,11 +75,10 @@ public class DataTableNewEntry
         {
             Console.WriteLine("Enter Weeks Worked (if applicable):  ");
             string newWeeksWorked = Console.ReadLine();
-            int newWeeksWorkedint;
             bool valid = int.TryParse(newWeeksWorked, out newWeeksWorkedint);
             if (valid)
             {
-                Console.WriteLine("Vaild, Salary set to: $" + newWeeksWorkedint);
+                Console.WriteLine("Vaild, Weeks Worked set to:  " + newWeeksWorkedint);
                 break;
             }
             else
@@ -81,11 +86,13 @@ public class DataTableNewEntry
                 Console.WriteLine("invaild input.");
             }
         }
+        Console.WriteLine($"Data to inject from NE:  {newFName} / {newLName} / {newPermBoo} / {newSalaryint} / {newBonusint} / {newDayRateint} / {newWeeksWorkedint}");
+        IDCount++;
     }
-
+    
     public void TypeConv()
     {
-        var newPermBoo = false;
+        
         while (true)
         {
             Console.WriteLine("Is Employment Permanent? [Y/N]  ");
@@ -104,5 +111,6 @@ public class DataTableNewEntry
         }
         Console.WriteLine("BOOLEAN SET TO:  " + newPermBoo);
     }
-}
 
+
+}

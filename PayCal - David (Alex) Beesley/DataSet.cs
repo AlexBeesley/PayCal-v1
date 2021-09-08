@@ -4,6 +4,8 @@ using System.Data;
 public class DataTableMain
 {
     public DataTable table = new DataTable();
+    public DataTableNewEntry ne = new DataTableNewEntry();
+    
     public DataTable MakeTable()
     {   
         table.Columns.Add("ID", typeof(int));
@@ -22,25 +24,6 @@ public class DataTableMain
         return table;
     }
 
-    /*public void PrintTable()
-    {
-            int x = 0;
-            for (int i = 0; i < 8; i++)
-            {
-                Console.WriteLine(table.Columns[i].ColumnName + ":  " + table.Rows[x].ItemArray.GetValue(i));
-                if (i == 4)
-                {
-                    x++;
-                    if (x == 3)
-                    {
-                        break;
-                    }
-                    i = -1;
-                }
-                Console.WriteLine("\n");
-            }
-    }*/
-
     public void PrintTable()
     {
         foreach (DataRow dr in table.Rows)
@@ -50,5 +33,12 @@ public class DataTableMain
         }
         Console.WriteLine("\n");
     }
-
+    
+    
+    public void NewDataInjection()
+    {
+        ne.newEntry();
+        Console.WriteLine($"Data to inject from NE:  {ne.newFName} / {ne.newLName} / {ne.newPermBoo} / {ne.newSalaryint} / {ne.newBonusint} / {ne.newDayRateint} / {ne.newWeeksWorkedint}");
+        table.Rows.Add(ne.IDCount, ne.newFName, ne.newLName, ne.newPermBoo, ne.newSalaryint, ne.newBonusint, ne.newDayRateint, ne.newWeeksWorkedint);
+    }
 }
