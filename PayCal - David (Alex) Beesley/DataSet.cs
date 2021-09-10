@@ -33,18 +33,6 @@ public class DataTableMain
 
         return table;
     }
-    //public void GetEntry()
-    //{
-    //    Console.WriteLine("from get entry: " + selectedID);
-    //    Console.WriteLine(table.Columns[1].ColumnName + ":  " + table.Rows[selectedID].ItemArray.GetValue(1));
-    //    object getSalary = table.Rows[selectedID].ItemArray.GetValue(4);
-    //    object getBonus = table.Rows[selectedID].ItemArray.GetValue(5);
-    //    object getDayRate = table.Rows[selectedID].ItemArray.GetValue(6);
-    //    object getWeeksWorked = table.Rows[selectedID].ItemArray.GetValue(7);
-    //    //int AnnualPay = Convert.ToInt32(getBonus) + Convert.ToInt32(getSalary);
-    //    //Console.WriteLine("Salary is:  " + getSalary);
-    //    //Console.WriteLine("Total Annual pay is:  " + AnnualPay);
-    //}
 
     public void GetIDandData()
     {
