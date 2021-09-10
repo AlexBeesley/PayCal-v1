@@ -2,20 +2,20 @@
 using System.Data;
 public class DataTableNewEntry
 {
-    
+
     public string newFName;
     public string newLName;
     public bool newPermBoo = false;
-    public int newSalaryint;
-    public int newBonusint;
-    public int newDayRateint;
-    public int newWeeksWorkedint;
+    public Nullable<int> newSalaryint;
+    public Nullable<int> newBonusint;
+    public Nullable<int> newDayRateint;
+    public Nullable<int> newWeeksWorkedint;
 
     public int IDCount = 3;
     public int Output;
     public bool commit = false;
-    
-        
+
+
 
     string[] Fields = { "Enter First Name:  ", "Enter Surname:  ", "Enter Salary (if applicable):  $", "Enter Bonus (if applicable):  $",
                         "Enter Day Rate (if applicable):  $", "Enter Weeks Worked (if applicable):  " };
@@ -40,7 +40,7 @@ public class DataTableNewEntry
             GetIntInputs();
 
             Console.WriteLine($"Data to inject:  {newFName} / {newLName} / {newPermBoo} / {newSalaryint} / {newBonusint} / {newDayRateint} / {newWeeksWorkedint}");
-            
+
             while (commitComplete == false)
             {
                 Console.Write("Confirm data is correct and fit for injection. [Y/n]  ");
@@ -56,50 +56,75 @@ public class DataTableNewEntry
                     commitComplete = true;
                 }
             }
-            
+
             if (commit == true)
             {
                 NELoopComplete = true;
             }
 
         }
-        
+
     }
 
     public void GetIntInputs()
     {
-        for (int i = 2; i < 6; i++)
+        if (newPermBoo == true)
         {
-           Console.Write(Fields[i]);
-            string Input = Console.ReadLine();
-            bool valid = int.TryParse(Input, out Output);
-            if (valid)
+            for (int i = 2; i < 4; i++)
             {
-                if (i == 2) //Salary
+                Console.Write(Fields[i]);
+                string Input = Console.ReadLine();
+                bool valid = int.TryParse(Input, out Output);
+                if (valid)
                 {
-                    Console.WriteLine("Vaild, Salary set to: $" + Output);
-                    newSalaryint = Output;
+                    if (i == 2) //Salary
+                    {
+                        Console.WriteLine("Vaild, Salary set to: $" + Output);
+                        newSalaryint = Output;
+                    }
+                    if (i == 3) //Bonus
+                    {
+                        Console.WriteLine("Vaild, Bonus set to: $" + Output);
+                        newBonusint = Output;
+                    }
+                    newDayRateint = null;
+                    newWeeksWorkedint = null;
                 }
-                if (i == 3) //Bonus
+
+                else
                 {
-                    Console.WriteLine("Vaild, Bonus set to: $" + Output);
-                    newBonusint = Output;
-                }
-                if (i == 4) //Day Rate
-                {
-                    Console.WriteLine("Vaild, Day Rate set to: $" + Output);
-                    newDayRateint = Output;
-                }
-                if (i == 5) //Weeks Worked
-                {
-                    Console.WriteLine("Vaild, Weeks Worked set to:  " + Output);
-                    newWeeksWorkedint = Output;
+                    Console.WriteLine("invaild input.");
                 }
             }
-           
-            else
+        }
+
+
+        if (newPermBoo == false)
+        {
+            for (int i = 4; i < 6; i++)
             {
-                Console.WriteLine("invaild input.");
+                Console.Write(Fields[i]);
+                string Input = Console.ReadLine();
+                bool valid = int.TryParse(Input, out Output);
+                if (valid)
+                {
+                    if (i == 4) //Day Rate
+                    {
+                        Console.WriteLine("Vaild, Day Rate set to: $" + Output);
+                        newDayRateint = Output;
+                    }
+                    if (i == 5) //Weeks Worked
+                    {
+                        Console.WriteLine("Vaild, Weeks Worked set to:  " + Output);
+                        newWeeksWorkedint = Output;
+                    }
+                    newSalaryint = null;
+                    newBonusint = null;
+                }
+                else
+                {
+                    Console.WriteLine("invaild input.");
+                }
             }
         }
     }

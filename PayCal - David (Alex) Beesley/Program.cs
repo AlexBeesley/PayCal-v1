@@ -3,7 +3,7 @@ namespace PayCal
 {
     public class MainThread
     {
-
+        
         static void Main(string[] args)
         {
             Console.SetWindowSize(117,50);
@@ -11,7 +11,6 @@ namespace PayCal
             Console.WriteLine("");
 
             DataTableMain dt = new DataTableMain();
-            DataTableNewEntry ne = new DataTableNewEntry();
             
             dt.MakeTable();
 
@@ -20,18 +19,22 @@ namespace PayCal
                 Console.WriteLine(@"
 Please Select from the following options:
 Display Employee Information --------------------------------------------------------------------------------- 1
-Add new Employee --------------------------------------------------------------------------------------------- 2");
+Add new Employee --------------------------------------------------------------------------------------------- 2
+Pay Calculator ----------------------------------------------------------------------------------------------- 3");
                 Console.Write(">>>  ");
                 string Selection = Console.ReadLine();
                 if (Selection == "1")
                 {
-                    Console.Clear();
-                    Console.WriteLine("\n\n");
+
                     dt.PrintTable();
                 }
                 if (Selection == "2")
                 {
                     dt.NewDataInjection();
+                }
+                if (Selection == "3")
+                {
+                    dt.GetIDandData();
                 }
             }
         }
