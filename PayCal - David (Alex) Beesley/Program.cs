@@ -25,7 +25,6 @@ Pay Calculator -----------------------------------------------------------------
                 string Selection = Console.ReadLine();
                 if (Selection == "1")
                 {
-
                     dt.PrintTable();
                 }
                 if (Selection == "2")
@@ -36,6 +35,10 @@ Pay Calculator -----------------------------------------------------------------
                 {
                     dt.GetIDandData();
                 }
+                else
+                {
+                }
+                
             }
         }
     }
