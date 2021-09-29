@@ -1,79 +1,192 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 [TestFixture]
-public class GetIDandDate_Test
+public class Check_Variables
 {
+
     [Test]
-    public void CheckGlobalVariables()
+    public void Check_newPermboo_is_false()
     {
+        // Arrange
         var sut = new DataTableNewEntry();
+
+        // Act + Assert
         Assert.False(sut.newPermBoo);
-        Object[] varNames = {sut.newFName, sut.newLName, sut.newSalaryint, sut.newBonusint, 
-                             sut.newBonusint, sut.newDayRateint, sut.newWeeksWorkedint};
-        for (int i = 0; i < 6; i++)
-        {
-            Assert.Null(varNames[i]);
-        }
     }
 
     [Test]
-    public void CheckTableTypes()
+    public void Check_newFName_is_null()
     {
+        // Arrange
+        var sut = new DataTableNewEntry();
+
+        // Act + Assert
+        Assert.Null(sut.newFName);
+    }
+
+    [Test]
+    public void Check_newLName_is_null()
+    {
+        // Arrange
+        var sut = new DataTableNewEntry();
+
+        // Act + Assert
+        Assert.Null(sut.newLName);
+    }
+
+    [Test]
+    public void Check_newSalaryint_is_null()
+    {
+        // Arrange
+        var sut = new DataTableNewEntry();
+
+        // Act + Assert
+        Assert.Null(sut.newSalaryint);
+    }
+
+    [Test]
+    public void Check_newBonusint_is_null()
+    {
+        // Arrange
+        var sut = new DataTableNewEntry();
+
+        // Act + Assert
+        Assert.Null(sut.newBonusint);
+    }
+
+    [Test]
+    public void Check_newDayRateint_is_null()
+    {
+        // Arrange
+        var sut = new DataTableNewEntry();
+
+        // Act + Assert
+        Assert.Null(sut.newDayRateint);
+    }
+
+    [Test]
+    public void Check_newWeeksWorkedint_is_null()
+    {
+        // Arrange
+        var sut = new DataTableNewEntry();
+
+        // Act + Assert
+        Assert.Null(sut.newWeeksWorkedint);
+    }
+}
+
+public class Check_DataTable_Types
+{
+    [Test]
+    public void Check_Object_In_IDColumn_Is_Int32()
+    {
+        // Arrange
         var sut = new DataTableMain();
+
+        // Act
         sut.MakeTable();
-        Object[] dtTypes = { typeof(string), typeof(Int32), typeof(bool), typeof(DBNull) };
-        Assert.AreEqual(sut.table.Rows[0].ItemArray.Length, 8);
 
-        for (int x = 0; x < 2; x++)
-        {
-            if (Convert.ToBoolean(sut.table.Rows[x].ItemArray.GetValue(3)) == true)
-            {
-                for (int i = 1; i < 7; i++)
-                {
-                    if (i == 1 || i == 2)
-                    {
-                        Assert.That(sut.table.Rows[x].ItemArray.GetValue(i), Is.TypeOf((Type)dtTypes[0]));
-                    }
-                    if (i == 3)
-                    {
-                        Assert.That(sut.table.Rows[x].ItemArray.GetValue(i), Is.TypeOf((Type)dtTypes[2]));
-                    }
-                    if (i == 4 || i == 5)
-                    {
-                        Assert.That(sut.table.Rows[x].ItemArray.GetValue(i), Is.TypeOf((Type)dtTypes[1]));
-                    }
-                    if (i == 6 || i == 7)
-                    {
-                        Assert.That(sut.table.Rows[x].ItemArray.GetValue(i), Is.TypeOf((Type)dtTypes[3]));
-                    }
-                }
-            }
+        // Assert
+        Assert.That(sut.table.Rows[0].ItemArray.GetValue(0), 
+                    Is.TypeOf((Type)typeof(Int32)));
+    }
 
-            else
-            {
-                for (int i = 1; i < 7; i++)
-                {                    
-                    if (i == 1 || i == 2)
-                    {
-                        Assert.That(sut.table.Rows[x].ItemArray.GetValue(i), Is.TypeOf((Type)dtTypes[0]));
-                    }
-                    if (i == 3)
-                    {
-                        Assert.That(sut.table.Rows[x].ItemArray.GetValue(i), Is.TypeOf((Type)dtTypes[2]));
-                    }
-                    if (i == 4 || i == 5)
-                    {
-                        Assert.That(sut.table.Rows[x].ItemArray.GetValue(i), Is.TypeOf((Type)dtTypes[3]));
-                    }
-                    if (i == 6 || i == 7)
-                    {
-                        Assert.That(sut.table.Rows[x].ItemArray.GetValue(i), Is.TypeOf((Type)dtTypes[1]));
-                    }
-                }
-            }
-        }
+    [Test]
+    public void Check_Object_In_FNColumn_Is_String()
+    {
+        // Arrange
+        var sut = new DataTableMain();
+
+        // Act
+        sut.MakeTable();
+
+        // Assert
+        Assert.That(sut.table.Rows[0].ItemArray.GetValue(1),
+                    Is.TypeOf((Type)typeof(String)));
+    }
+
+    [Test]
+    public void Check_Object_In_LNColumn_Is_String()
+    {
+        // Arrange
+        var sut = new DataTableMain();
+
+        // Act
+        sut.MakeTable();
+
+        // Assert
+        Assert.That(sut.table.Rows[0].ItemArray.GetValue(2),
+                    Is.TypeOf((Type)typeof(String)));
+    }
+
+   [Test]
+    public void Check_Object_In_PermanentEmploymentColumn_Is_Int32()
+    {
+    // Arrange
+    var sut = new DataTableMain();
+
+    // Act
+    sut.MakeTable();
+
+    // Assert
+    Assert.That(sut.table.Rows[0].ItemArray.GetValue(3),
+                Is.TypeOf((Type)typeof(bool)));
+    }
+
+    [Test]
+    public void Check_Object_In_SalaryColumn_Is_Int32()
+    {
+        // Arrange
+        var sut = new DataTableMain();
+
+        // Act
+        sut.MakeTable();
+
+        // Assert
+        Assert.That(sut.table.Rows[0].ItemArray.GetValue(4),
+                    Is.TypeOf((Type)typeof(Int32)));
+    }
+
+    [Test]
+    public void Check_Object_In_BonusColumn_Is_Int32()
+    {
+        // Arrange
+        var sut = new DataTableMain();
+
+        // Act
+        sut.MakeTable();
+
+        // Assert
+        Assert.That(sut.table.Rows[0].ItemArray.GetValue(5),
+                    Is.TypeOf((Type)typeof(Int32)));
+    }
+
+    [Test]
+    public void Check_Object_In_DayRateColumn_Is_Int32()
+    {
+        // Arrange
+        var sut = new DataTableMain();
+
+        // Act
+        sut.MakeTable();
+
+        // Assert
+        Assert.That(sut.table.Rows[2].ItemArray.GetValue(6),
+                    Is.TypeOf((Type)typeof(Int32)));
+    }
+
+    [Test]
+    public void Check_Object_In_WeeksWorkedColumn_Is_Int32()
+    {
+        // Arrange
+        var sut = new DataTableMain();
+
+        // Act
+        sut.MakeTable();
+
+        // Assert
+        Assert.That(sut.table.Rows[2].ItemArray.GetValue(7),
+                    Is.TypeOf((Type)typeof(Int32)));
     }
 }
