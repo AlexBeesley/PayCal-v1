@@ -3,17 +3,17 @@ using System.Data;
 public class DataTableNewEntry
 {
 
-    public string newFName;
-    public string newLName;
-    public bool newPermBoo = false;
-    public Nullable<int> newSalaryint;
-    public Nullable<int> newBonusint;
-    public Nullable<int> newDayRateint;
-    public Nullable<int> newWeeksWorkedint;
+    public string newFName { get; set; }
+    public string newLName { get; set; }
+    public bool newPermBoo { get; set; }
+    public int? newSalaryint { get; set; }
+    public int? newBonusint { get; set; }
+    public int? newDayRateint { get; set; }
+    public int? newWeeksWorkedint { get; set; }
 
     public int IDCount = 3;
     public int Output;
-    public bool commit = false;
+    public bool commit { get; set; }
 
 
 
